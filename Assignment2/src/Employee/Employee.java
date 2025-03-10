@@ -87,9 +87,15 @@ public class Employee {
     }
 
     //method to calculate annual gross salary
-    public double calculateAnnualGrossSalary(double hoursWorked, double hourlyWage){
-        return hoursWorked*hourlyWage*52;
+    public void calculateAnnualGrossSalary(double hoursWorked, double hourlyWage){
+        annualGrossSalary = hoursWorked*hourlyWage*52;
     }
 
+    public boolean equals(Employee obj) {
+        return super.equals(obj) && employeeNumber == obj.employeeNumber;
+    }
 
+    public String toString(){
+        return employeeNumber + " " + firstName + " " + lastName + " " + hoursWorked + " " + hourlyWage + " " + annualGrossSalary;
+    }
 }
