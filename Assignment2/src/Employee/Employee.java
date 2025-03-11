@@ -6,24 +6,25 @@ package Employee;//-------------------------------------------------
 //containing methods that can calculate their gross salary.
 
 public class Employee {
-    protected int employeeNumber;
+    protected long employeeNumber;
     protected String firstName;
     protected String lastName;
     protected double hoursWorked;
     protected double hourlyWage;
     protected double annualGrossSalary;
+    protected double netSalary;
+    protected double payDeduction;
 
     //default constructor
     public Employee(){}
 
     //parametrized constructor
-    public Employee(int employeeNumber, String firstName, String lastName, double hoursWorked, double hourlyWage, double annualGrossSalary) {
+    public Employee(long employeeNumber, String firstName, String lastName, double hoursWorked, double hourlyWage) {
         this.employeeNumber = employeeNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.hoursWorked = hoursWorked;
         this.hourlyWage = hourlyWage;
-        this.annualGrossSalary = annualGrossSalary;
     }
 
     //copy constructor
@@ -33,11 +34,10 @@ public class Employee {
         lastName = other.lastName;
         hoursWorked = other.hoursWorked;
         hourlyWage = other.hourlyWage;
-        annualGrossSalary = other.annualGrossSalary;
     }
 
     //getters
-    public int getEmployeeNumber() {
+    public long getEmployeeNumber() {
         return employeeNumber;
     }
 
@@ -61,8 +61,12 @@ public class Employee {
         return annualGrossSalary;
     }
 
+    public double getNetSalary() { return netSalary; }
+
+    public double getPayDeduction() { return payDeduction; }
+
     //setters
-    public void setEmployeeNumber(int employeeNumber) {
+    public void setEmployeeNumber(long employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
 
@@ -86,8 +90,12 @@ public class Employee {
         this.annualGrossSalary = annualGrossSalary;
     }
 
+    public void setNetSalary(double netSalary) { this.netSalary = netSalary; }
+
+    public void setPayDeduction(double payDeduction) { this.payDeduction = payDeduction; }
+
     //method to calculate annual gross salary
-    public void calculateAnnualGrossSalary(double hoursWorked, double hourlyWage){
+    public void calculateAnnualGrossSalary(){
         annualGrossSalary = hoursWorked*hourlyWage*52;
     }
 
@@ -95,7 +103,8 @@ public class Employee {
         return super.equals(obj) && employeeNumber == obj.employeeNumber;
     }
 
+    @Override
     public String toString(){
-        return employeeNumber + " " + firstName + " " + lastName + " " + hoursWorked + " " + hourlyWage + " " + annualGrossSalary;
+        return employeeNumber + " " + firstName + " " + lastName + " " + hoursWorked + " " + hourlyWage;
     }
 }

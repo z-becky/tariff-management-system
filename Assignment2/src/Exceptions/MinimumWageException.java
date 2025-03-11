@@ -1,4 +1,4 @@
 package Exceptions;
 
-public class MinimumWageException {
+public class MinimumWageException extends Exception{
 }
